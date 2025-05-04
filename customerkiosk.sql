@@ -77,7 +77,7 @@
 --   CONSTRAINT `item_promotion_ibfk_2` FOREIGN KEY (`Promo_ID`) REFERENCES `promotion` (`Promo_ID`)
 -- ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- -- Table structure for table `sale`
+-- Table structure for table `sale`
 -- DROP TABLE IF EXISTS `sale`;
 -- CREATE TABLE `sale` (
 --   `Sale_ID` INT NOT NULL,
@@ -93,21 +93,6 @@
 --   CONSTRAINT `sale_ibfk_1` FOREIGN KEY (`Customer_ID`) REFERENCES `customer` (`customer_ID`),
 --   CONSTRAINT `sale_ibfk_2` FOREIGN KEY (`Employee_ID`) REFERENCES `employee` (`employee_ID`),
 --   CONSTRAINT `sale_ibfk_3` FOREIGN KEY (`Item_ID`) REFERENCES `item` (`Item_ID`)
--- ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
-
--- into consideration
--- -- Table structure for table `item_sale`
--- DROP TABLE IF EXISTS `item_sale`;
--- CREATE TABLE `item_sale` (
---   `ItemSale_ID` INT NOT NULL,
---   `Item_ID` INT NOT NULL,
---   `Sale_ID` INT NOT NULL,
---   PRIMARY KEY (`ItemSale_ID`),
---   KEY `Item_ID` (`Item_ID`),
---   KEY `Sale_ID` (`Sale_ID`),
---   CONSTRAINT `item_sale_ibfk_1` FOREIGN KEY (`Item_ID`) REFERENCES `item` (`Item_ID`),
---   CONSTRAINT `item_sale_ibfk_2` FOREIGN KEY (`Sale_ID`) REFERENCES `sale` (`Sale_ID`)
 -- ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- SET FOREIGN_KEY_CHECKS = 1;
