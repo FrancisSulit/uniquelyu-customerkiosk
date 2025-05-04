@@ -1,0 +1,75 @@
+DROP DATABASE IF EXISTS `Uniqlo_Kiosk_System`;
+CREATE DATABASE `Uniqlo_Kiosk_System`;
+USE `Uniqlo_Kiosk_System`;
+
+
+CREATE TABLE IF NOT EXISTS CUSTOMERS (
+
+customerID INT AUTO_INCREMENT,
+customerName VARCHAR(255),
+phoneNumber VARCHAR(255),
+email VARCHAR(255) UNIQUE,
+
+PRIMARY KEY (customerID)
+
+);
+
+
+CREATE TABLE IF NOT EXISTS ITEMS (
+
+itemID INT AUTO_INCREMENT,
+itemName VARCHAR(255),
+itemImg BLOB,
+category VARCHAR(255),
+price DECIMAL(10,2),
+size VARCHAR(255),
+colour VARCHAR(255),
+stockStatus VARCHAR(255),
+quantity INT(10),
+newArrivalID INT(10),
+
+PRIMARY KEY (itemID)
+
+);
+
+
+CREATE TABLE IF NOT EXISTS EMPLOYEES (
+
+employeeID INT AUTO_INCREMENT,
+firstName VARCHAR(255),
+lastName VARCHAR(255),
+employeeImg BLOB,
+
+PRIMARY KEY (employeeID)
+
+);
+
+
+CREATE TABLE IF NOT EXISTS ONSALES (
+
+saleID INT AUTO_INCREMENT,
+itemID INT,
+startDate DATE,
+endDate DATE,
+
+PRIMARY KEY (saleID),
+
+FOREIGN KEY (itemID) REFERENCES ITEMS(itemID)
+
+);
+
+
+CREATE TABLE IF NOT EXISTS PROMOTIONS (
+
+promoID INT AUTO_INCREMENT,
+itemID INT,
+promoDescription VARCHAR(2000),
+startDate DATE,
+endDate DATE,
+discountedPercentage DECIMAL(10, 2),
+
+PRIMARY KEY (promoID),
+
+FOREIGN KEY (itemID) REFERENCES ITEMS(itemID)
+
+);
