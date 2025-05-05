@@ -48,13 +48,13 @@
 -- ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- -- Insert statement for 'item'
--- -- INSERT INTO `item` 
--- (`Item_ID`, `Item_Name`, `Item_Img`, `Item_Category`, `Item_Price`, `Item_Size`, `Item_Color`, `Item_StockStatus`, `Item_Quantity`) VALUES
--- (1, 'Crew Neck T-Shirt', NULL, 'Clothing', 19.99, 'M', 'Blue', 'In Stock', 100),
--- (2, 'Slim Fit Jeans', NULL, 'Clothing', 49.99, '32', 'Dark Blue', 'In Stock', 60),
--- (3, 'Hooded Sweatshirt', NULL, 'Clothing', 39.95, 'L', 'Gray', 'Low Stock', 15),
--- (4, 'Windproof Stand Blouson', NULL, 'Clothing', 59.50, 'M', 'Black', 'In Stock', 30),
--- (5, 'Combination Sleeveless Dress', NULL, 'Clothing', 29.99, 'S', 'Red', 'Out of Stock', 0);
+-- INSERT INTO `item` 
+--  (`Item_ID`, `Item_Name`, `Item_Img`, `Item_Category`, `Item_Price`, `Item_Size`, `Item_Color`, `Item_StockStatus`, `Item_Quantity`) VALUES
+--  (1, 'Crew Neck T-Shirt', NULL, 'Clothing', 19.99, 'M', 'Blue', 'In Stock', 100),
+--  (2, 'Slim Fit Jeans', NULL, 'Clothing', 49.99, '32', 'Dark Blue', 'In Stock', 60),
+--  (3, 'Hooded Sweatshirt', NULL, 'Clothing', 39.95, 'L', 'Gray', 'Low Stock', 15),
+--  (4, 'Windproof Stand Blouson', NULL, 'Clothing', 59.50, 'M', 'Black', 'In Stock', 30),
+--  (5, 'Combination Sleeveless Dress', NULL, 'Clothing', 29.99, 'S', 'Red', 'Out of Stock', 0);
 
 -- -- Table structure for table `promotion`
 -- DROP TABLE IF EXISTS `promotion`;
