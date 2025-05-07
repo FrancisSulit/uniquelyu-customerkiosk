@@ -66,7 +66,7 @@ itemID INT,
 promoDescription VARCHAR(2000),
 startDate DATE,
 endDate DATE,
-discountedPercentage DECIMAL(10, 2),
+promoImgPath VARCHAR(500)        -- File Path String for promotion images
 
 PRIMARY KEY (promoID),
 
