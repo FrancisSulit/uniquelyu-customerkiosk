@@ -65,6 +65,7 @@ ID INT AUTO_INCREMENT,
 `Description` VARCHAR(2000),
 `Start Date` DATE,
 `End Date` DATE,
+PromoImgPath VARCHAR(500),       -- File path string for promo images
 
 PRIMARY KEY (ID),
 
