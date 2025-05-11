@@ -5,71 +5,69 @@ USE `Uniqlo_Kiosk_System`;
 
 CREATE TABLE IF NOT EXISTS CUSTOMERS (
 
-customerID INT AUTO_INCREMENT,
-customerName VARCHAR(255),
-phoneNumber VARCHAR(255),
-email VARCHAR(255) UNIQUE,
+ID INT AUTO_INCREMENT,
 
-PRIMARY KEY (customerID)
+PRIMARY KEY (ID)
 
 );
 
 
 CREATE TABLE IF NOT EXISTS ITEMS (
 
-itemID INT AUTO_INCREMENT,
-itemName VARCHAR(255),
-itemImg BLOB,
-category VARCHAR(255),
-price DECIMAL(10,2),
-size VARCHAR(255),
-colour VARCHAR(255),
-stockStatus VARCHAR(255),
-quantity INT(10),
-newArrivalID INT(10),
+ID INT AUTO_INCREMENT,
+`Name` VARCHAR(255),
+`Image` BLOB,
+`Description` VARCHAR(2000),
+Category VARCHAR(255),						-- clothing type (e.x shirt, short, shoe etc)
+Gender VARCHAR(255),
+Price DECIMAL(10,2),
+Size VARCHAR(255),
+Colour VARCHAR(255),
+`Stock Status` VARCHAR(255),
+Quantity INT(10),
+`New Arrival ID` INT(10),
 
-PRIMARY KEY (itemID)
+PRIMARY KEY (ID)
 
 );
 
 
 CREATE TABLE IF NOT EXISTS EMPLOYEES (
 
-employeeID INT AUTO_INCREMENT,
-firstName VARCHAR(255),
-lastName VARCHAR(255),
-employeeImg BLOB,
+ID INT AUTO_INCREMENT,
+`First Name` VARCHAR(255),
+`Last Name` VARCHAR(255),
+`Image` BLOB,
 
-PRIMARY KEY (employeeID)
+PRIMARY KEY (ID)
 
 );
 
 
 CREATE TABLE IF NOT EXISTS ONSALES (
 
-saleID INT AUTO_INCREMENT,
-itemID INT,
-startDate DATE,
-endDate DATE,
+ID INT AUTO_INCREMENT,
+`Item ID` INT,
+`Start Date` DATE,
+`End Date` DATE,
 
-PRIMARY KEY (saleID),
+PRIMARY KEY (ID),
 
-FOREIGN KEY (itemID) REFERENCES ITEMS(itemID)
+FOREIGN KEY (`Item ID`) REFERENCES ITEMS(ID)
 
 );
 
 
 CREATE TABLE IF NOT EXISTS PROMOTIONS (
 
-promoID INT AUTO_INCREMENT,
-itemID INT,
-promoDescription VARCHAR(2000),
-startDate DATE,
-endDate DATE,
-discountedPercentage DECIMAL(10, 2),
+ID INT AUTO_INCREMENT,
+`Item ID` INT,
+`Description` VARCHAR(2000),
+`Start Date` DATE,
+`End Date` DATE,
 
-PRIMARY KEY (promoID),
+PRIMARY KEY (ID),
 
-FOREIGN KEY (itemID) REFERENCES ITEMS(itemID)
+FOREIGN KEY (`Item ID`) REFERENCES ITEMS(ID)
 
 );
