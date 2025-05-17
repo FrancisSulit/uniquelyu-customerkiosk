@@ -6,7 +6,7 @@ public class DeleteItem {
     // JDBC database URL, user, and password
     private static final String DB_URL = "jdbc:mysql://localhost:3306/Uniqlo_Kiosk_System";
     private static final String DB_USER = "root";
-    private static final String DB_PASSWORD = "Reiji0124816*";
+    private static final String DB_PASSWORD = "";
 
     public static void main(String[] args) {
         
