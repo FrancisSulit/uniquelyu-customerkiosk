@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS ITEMS (
 
 ID INT AUTO_INCREMENT,
 `Name` VARCHAR(255),
-`ImagePath` VARCHAR(1000),            -- file path string for items
+`ImagePath` VARCHAR(1000),                      
 `Description` VARCHAR(2000),
 Category VARCHAR(255),						    -- clothing type (e.x shirt, short, shoe etc)
 Gender VARCHAR(255),
@@ -37,6 +37,7 @@ CREATE TABLE IF NOT EXISTS EMPLOYEES (
 ID INT AUTO_INCREMENT,
 `First Name` VARCHAR(255),
 `Last Name` VARCHAR(255),
+`ImagePath` VARCHAR(1000),            
     
 PRIMARY KEY (ID)
     
@@ -50,7 +51,7 @@ ID INT AUTO_INCREMENT,
 `Description` VARCHAR(2000),         
 `Start Date` DATE,
 `End Date` DATE,
-`ImagePath` VARCHAR(1000),            -- file path string for sale image
+`ImagePath` VARCHAR(1000),           
   
 PRIMARY KEY (ID),
   
@@ -66,7 +67,7 @@ ID INT AUTO_INCREMENT,
 `Description` VARCHAR(2000),
 `Start Date` DATE,
 `End Date` DATE,
-`ImagePath` VARCHAR(1000),            -- file path string for promo image
+`ImagePath` VARCHAR(1000),           
   
 PRIMARY KEY (ID),
   
