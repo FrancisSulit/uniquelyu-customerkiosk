@@ -9,7 +9,7 @@ public class DatabaseConnection {
 
     private static final String DB_URL = "jdbc:mysql://localhost:3306/Uniqlo_Kiosk_System";
     private static final String DB_USER = "root";
-    private static final String DB_PASSWORD = "DITO NYO PALITANG NG PASSWORD NG SA DATABASE NYO";
+    private static final String DB_PASSWORD = "DITO NYO PALITAN NG PASSWORD NG SA DATABASE NYO";
 
     
     // Load MySQL JDBC Driver so DriverManager can find it
