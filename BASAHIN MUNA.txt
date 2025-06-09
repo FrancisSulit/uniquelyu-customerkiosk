@@ -1,6 +1,0 @@
-Login Details (username at password)
-para sa employee side nasa data/LoginDetails.txt
-
-Password para sa Database (yung DB_PASSWORD)
-depende sa kung ano yung password sa kopya nyo
-sa mySQL Workbench
