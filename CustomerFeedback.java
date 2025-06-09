@@ -1,32 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
-
-package com.mycompany.customerfeedback;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.Scanner;
-
-/**
- *
- * @author cereal
- */
-
-/*
-Functionalities:
-- Get response to review or not
-    - just return the function if No
-- Array string to store questions (ArrayList)
-- Get all inputs first
-    - Inputs by switch statement
-- Access database and update database
-*/
 public class CustomerFeedback {
     static Scanner sc = new Scanner(System.in);
     private ArrayList<String> responses = new ArrayList<String>();
