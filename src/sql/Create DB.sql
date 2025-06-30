@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS ITEMS (
 
 ID INT AUTO_INCREMENT,
 `Name` VARCHAR(255),
-`Image` BLOB,
+`Image Location` VARCHAR(1000),
 `Description` VARCHAR(2000),
 Category VARCHAR(255),						-- clothing type (e.x shirt, short, shoe etc)
 Gender VARCHAR(255),
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS EMPLOYEES (
 ID INT AUTO_INCREMENT,
 `First Name` VARCHAR(255),
 `Last Name` VARCHAR(255),
-`Image` BLOB,
+`Image Location` VARCHAR(1000),
 
 PRIMARY KEY (ID)
 
