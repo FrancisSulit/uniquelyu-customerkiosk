@@ -52,7 +52,6 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public Item getItemByID (int itemIDToGet) throws SQLException {
-
         return itemDAO.getItemByID(itemIDToGet);
     }
 
@@ -82,25 +81,10 @@ public class ItemServiceImpl implements ItemService {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    @Override
+    public List<Item> getItemByGenderCategory (String gender, String category) throws SQLException {
+        return itemDAO.getItemByGenderCategory(gender, category);
+    }
 
 
 
@@ -119,14 +103,12 @@ public class ItemServiceImpl implements ItemService {
     public Set<String> getAvailableSizesForCategory(String category) throws Exception {
         
         // try {
-        
             return itemDAO.getAllItems().stream()
                     .filter(item -> item.getCategory() != null && item.getCategory().equalsIgnoreCase(category))
                     .map(Item::getSize)
                     .filter(Objects::nonNull)
                     .map(s -> s.toUpperCase(Locale.ROOT))
                     .collect(Collectors.toSet());
-        
         // } catch (Exception e) {
         //     return Set.of();
         // }
@@ -136,47 +118,16 @@ public class ItemServiceImpl implements ItemService {
     public Set<String> getAvailableColoursForCategory(String category) throws Exception {
         
         // try {
-        
             return itemDAO.getAllItems().stream()
                     .filter(item -> item.getCategory() != null && item.getCategory().equalsIgnoreCase(category))
                     .map(Item::getColour)
                     .filter(Objects::nonNull)
                     .map(s -> s.toLowerCase(Locale.ROOT))
                     .collect(Collectors.toSet());
-        
         // } catch (Exception e) {
         //     return Set.of();
         // }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

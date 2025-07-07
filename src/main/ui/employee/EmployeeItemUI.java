@@ -14,7 +14,6 @@ public class EmployeeItemUI {
     private final Scanner scanner;
     private final ItemService itemService;
 
-
     public EmployeeItemUI (Scanner scanner, ItemService itemService) {
         this.scanner = scanner;
         this.itemService = itemService;
@@ -28,7 +27,6 @@ public class EmployeeItemUI {
         boolean addSuccess;
 
         try {
-
             DisplayUtilities.clearScreen();
             displayAllItems();
 
@@ -47,28 +45,22 @@ public class EmployeeItemUI {
             if (addSuccess) {
                 System.out.println("Item added successfully. ");
             }
-
             else {
                 System.err.println("Failed to add item. ");
             }
         }
-
         catch (IllegalArgumentException iae) {
             System.err.println("Item Validation Error: " + iae.getMessage());
         }
-
         catch (SQLException sqle) {
             System.err.println("Error inserting item: " + sqle.getMessage());
         }
-        
         catch (RuntimeException re) {
             System.err.println("Runtime Error: " + re.getMessage());
         }
-
         catch (Exception e) {
             System.err.println("Error: " + e.getMessage());
         }
-
         finally {
             System.out.println();
             DisplayUtilities.returnToMainMenu();
@@ -85,7 +77,6 @@ public class EmployeeItemUI {
         boolean editSuccess;
 
         try {
-
             DisplayUtilities.clearScreen();
             displayAllItems();
 
@@ -117,20 +108,16 @@ public class EmployeeItemUI {
             if (editSuccess) {
                 System.out.println("Item with ID " + itemIDToEdit + " updated successfully.");
             }
-            
             else {
                 System.out.println("No item updated.");
             }
         }
-
         catch (SQLException sqle) {
             System.err.println("Error updating item: " + sqle.getMessage());
         }
-
         catch (Exception e) {
             System.err.println("Error: " + e.getMessage());
         }
-
         finally {
             System.out.println();
             DisplayUtilities.returnToMainMenu();
@@ -145,7 +132,6 @@ public class EmployeeItemUI {
         List<Item> items;
 
         try {
-
             DisplayUtilities.clearScreen();
 
             /* ============================== RETRIEVING ITEMS ============================== */
@@ -156,26 +142,21 @@ public class EmployeeItemUI {
             if (items.isEmpty()) {
                 System.out.println("No items found in the inventory.");
             }
-
             else {
 
                 /* ============================== DISPLAYING ITEMS ============================== */
 
                 // Printing Item List
                 ItemDisplayFormatter.printItemHeader();
-
                 for (Item item : items) {
                     ItemDisplayFormatter.printItem(item);
                 }
-
                 ItemDisplayFormatter.printItemFooter();
             }
         }
-
         catch (SQLException sqle) {
             System.err.println("Error retrieving item: " + sqle.getMessage());
         }
-
         catch (Exception e) {
             System.err.println("Error: " + e.getMessage());
         }
@@ -183,7 +164,6 @@ public class EmployeeItemUI {
 
 
     public void displayAllItemsMenu () {
-
         displayAllItems();
         DisplayUtilities.returnToMainMenu();
     }
@@ -198,7 +178,6 @@ public class EmployeeItemUI {
         boolean deleteSuccess;
 
         try {
-
             DisplayUtilities.clearScreen();
             displayAllItems();
 
@@ -235,20 +214,16 @@ public class EmployeeItemUI {
             if (deleteSuccess) {
                 System.out.println("Item with ID " + itemIDtoDelete + "deleted successfully.");
             }
-
             else {
                 System.out.println("No item was deleted.");
             }
         }
-
         catch (SQLException sqle) {
             System.err.println("Error deleting item: " + sqle.getMessage());
         }
-
         catch (Exception e) {
             System.err.println("Error: " + e.getMessage());
         }
-
         finally {
             System.out.println();
             DisplayUtilities.returnToMainMenu();

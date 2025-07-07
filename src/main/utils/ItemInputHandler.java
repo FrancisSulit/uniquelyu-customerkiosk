@@ -62,11 +62,9 @@ public class ItemInputHandler {
         System.out.println();
 
         if (!newArrivalInput.isEmpty()) {
-
             try {
                 newArrivalID = Integer.parseInt(newArrivalInput);
             }
-
             catch (NumberFormatException nfe) {
                 System.err.println("Invalid New Arrival ID Input. Number values only. ");
                 System.err.println("Defaulting to -1.");
@@ -120,11 +118,9 @@ public class ItemInputHandler {
             valueInput = scanner.nextLine().trim();
 
             try {
-
                 value = Integer.parseInt(valueInput);
                 return value;
-            } 
-            
+            }
             catch (NumberFormatException nfe) {
                 System.err.println("Invalid Input. Number values only.");
                 System.out.println();
@@ -143,11 +139,9 @@ public class ItemInputHandler {
             valueInput = scanner.nextLine().trim();
 
             try {
-
                 value = Double.parseDouble(valueInput);
                 return value;
             }
-
             catch (NumberFormatException nfe) {
                 System.err.println("Invalid Input. Number values only.");
                 System.out.println();
@@ -165,9 +159,7 @@ public class ItemInputHandler {
             input = scanner.nextLine().trim();
             input = QueryHandler.capitaliseEachWord(input);
 
-            if (ItemBounds.validCategories.contains(input)) {
-                return input;
-            }
+            if (ItemBounds.validCategories.contains(input)) return input;
 
             System.out.println();
             System.err.println("Invalid Category.");
@@ -192,9 +184,7 @@ public class ItemInputHandler {
             input = scanner.nextLine().trim();
             input = QueryHandler.capitaliseEachWord(input);
 
-            if (ItemBounds.validGenders.contains(input)) {
-                return input;
-            }
+            if (ItemBounds.validGenders.contains(input)) return input;
 
             System.out.println();
             System.err.println("Invalid Gender.");
@@ -219,9 +209,7 @@ public class ItemInputHandler {
             input = scanner.nextLine().trim();
             input = QueryHandler.capitaliseEachWord(input);
 
-            if (ItemBounds.validSizes.contains(input)) {
-                return input;
-            }
+            if (ItemBounds.validSizes.contains(input)) return input;
 
             System.out.println();
             System.err.println("Invalid Size.");
@@ -246,9 +234,7 @@ public class ItemInputHandler {
             input = scanner.nextLine().trim();
             input = QueryHandler.capitaliseEachWord(input);
 
-            if (ItemBounds.validStockStatuses.contains(input)) {
-                return input;
-            }
+            if (ItemBounds.validStockStatuses.contains(input)) return input;
 
             System.out.println();
             System.err.println("Invalid Stock Status.");
@@ -287,10 +273,7 @@ public class ItemInputHandler {
 
         if (input.isEmpty()) return currentValue;
 
-        try {
-            return Integer.parseInt(input);
-        }
-
+        try { return Integer.parseInt(input); }
         catch (NumberFormatException nfe) {
             System.err.println("Invalid Input. Keeping current value.");
             System.out.println();
@@ -307,10 +290,7 @@ public class ItemInputHandler {
 
         if (input.isEmpty()) return currentValue;
 
-        try {
-            return Double.parseDouble(input);
-        }
-
+        try { return Double.parseDouble(input); }
         catch (NumberFormatException nfe) {
             System.err.println("Invalid Input. Keeping current value.");
             System.out.println();
@@ -326,15 +306,11 @@ public class ItemInputHandler {
         input = scanner.nextLine().trim();
 
         // If input is blank, keep current value
-        if (input.isEmpty()) {
-            return currentValue;
-        }
+        if (input.isEmpty()) return currentValue;
 
         input = QueryHandler.capitaliseEachWord(input);
 
-        if (ItemBounds.validCategories.contains(input)) {
-            return input;
-        }
+        if (ItemBounds.validCategories.contains(input)) return input;
 
         // If input is invalid, show error but return currentValue
         System.err.println("Invalid Category. Keeping current value.");
@@ -351,15 +327,11 @@ public class ItemInputHandler {
         input = scanner.nextLine().trim();
 
         // If input is blank, keep current value
-        if (input.isEmpty()) {
-            return currentValue;
-        }
+        if (input.isEmpty()) return currentValue;
 
         input = QueryHandler.capitaliseEachWord(input);
 
-        if (ItemBounds.validGenders.contains(input)) {
-            return input;
-        }
+        if (ItemBounds.validGenders.contains(input)) return input;
 
         // If input is invalid, show error but return currentValue
         System.err.println("Invalid Gender. Keeping current value.");
@@ -376,15 +348,11 @@ public class ItemInputHandler {
         input = scanner.nextLine().trim();
 
         // If input is blank, keep current value
-        if (input.isEmpty()) {
-            return currentValue;
-        }
+        if (input.isEmpty()) return currentValue;
 
         input = QueryHandler.capitaliseEachWord(input);
 
-        if (ItemBounds.validSizes.contains(input)) {
-            return input;
-        }
+        if (ItemBounds.validSizes.contains(input)) return input;
 
         // If input is invalid, show error but return currentValue
         System.err.println("Invalid Size. Keeping current value.");
@@ -401,15 +369,11 @@ public class ItemInputHandler {
         input = scanner.nextLine().trim();
 
         // If input is blank, keep current value
-        if (input.isEmpty()) {
-            return currentValue;
-        }
+        if (input.isEmpty()) return currentValue;
 
         input = QueryHandler.capitaliseEachWord(input);
 
-        if (ItemBounds.validStockStatuses.contains(input)) {
-            return input;
-        }
+        if (ItemBounds.validStockStatuses.contains(input)) return input;
 
         // If input is invalid, show error but return currentValue
         System.err.println("Invalid Stock Status. Keeping current value.");

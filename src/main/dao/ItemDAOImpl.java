@@ -19,13 +19,10 @@ public class ItemDAOImpl implements ItemDAO {
         int affectedRows;
 
         try (
-
             // Connect to Database
             Connection conn = DatabaseConnection.getConnection();
             PreparedStatement pstmt = conn.prepareStatement(insertSQL)
-            
         ) {
-
             /* ============================== PREPARING QUERY ============================== */
 
             // Setting arguments to query
@@ -46,7 +43,6 @@ public class ItemDAOImpl implements ItemDAO {
             if (item.getNewArrivalID() != -1) {
                 pstmt.setInt(11, item.getNewArrivalID());
             }
-
             else {
                 pstmt.setNull(11, Types.INTEGER);
             }
@@ -69,13 +65,10 @@ public class ItemDAOImpl implements ItemDAO {
         int affectedRows;
 
         try (
-
             // Connect to Database
             Connection conn = DatabaseConnection.getConnection();
             PreparedStatement pstmt = conn.prepareStatement(editSQL);
-
         ) {
-
             /* ============================== PREPARING QUERY ============================== */
 
             // Setting arguments to query
@@ -110,16 +103,12 @@ public class ItemDAOImpl implements ItemDAO {
         String query = "SELECT * FROM ITEMS WHERE ID = ?";
 
         ResultSet rs;
-        // Item item;
 
         try (
-
             // Connect to Database
             Connection conn = DatabaseConnection.getConnection();
             PreparedStatement pstmt = conn.prepareStatement(query)
-        
         ) {
-
             /* ============================== PREPARING AND EXECUTING QUERY ============================== */
 
             // Setting parameter to query and executing query
@@ -128,7 +117,6 @@ public class ItemDAOImpl implements ItemDAO {
 
             // Setting the return object to the item found
             if (rs.next()) {
-
                 return new Item(
                     rs.getInt("ID"),
                     rs.getString("Name"),
@@ -143,11 +131,8 @@ public class ItemDAOImpl implements ItemDAO {
                     rs.getInt("Quantity"),
                     rs.getInt("New Arrival ID")
                 );
-            } 
-            
+            }
             else {
-
-                // throw new Exception("Item with ID " + itemID + " not found.");
                 return null;
             }
         }
@@ -161,17 +146,13 @@ public class ItemDAOImpl implements ItemDAO {
         List<Item> items = new ArrayList<>();
 
         try (
-
             // Connect to Database
             Connection conn = DatabaseConnection.getConnection();
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(searchSQL);
-
         ) {
-
             // Iterate through each row in the result set
             while (rs.next()) {
-
                 items.add(new Item(
                     rs.getInt("ID"),
                     rs.getString("Name"),
@@ -188,7 +169,6 @@ public class ItemDAOImpl implements ItemDAO {
                 ));
             }
         }
-
         return items;
     }
 
@@ -200,13 +180,10 @@ public class ItemDAOImpl implements ItemDAO {
         int affectedRows;
 
         try (
-
             // Connect to Database
             Connection conn = DatabaseConnection.getConnection();
             PreparedStatement pstmt = conn.prepareStatement(deleteSQL);
-        
         ) {
-
             /* ============================== PREPARING AND EXECUTING QUERY ============================== */
             
             // Setting parameter to query and executing query
@@ -220,26 +197,7 @@ public class ItemDAOImpl implements ItemDAO {
 
 
 
-
-
-
-
-
-
-
-
-
-    /* ======================================================= SEARCH BAR FUNCTIONS ======================================================= */
-
-
-    
-
-
-
-
-
-
-
+    /* ======================================================================= SEARCH BAR FUNCTIONS ======================================================================= */
 
 
 
@@ -261,7 +219,7 @@ public class ItemDAOImpl implements ItemDAO {
         keywords = query.toLowerCase().split("\\s+");
 
         for (Item item : getAllItems()) {
-
+            
             // Ensure all keywords match at least one field
             allMatch = true;
 
@@ -304,13 +262,10 @@ public class ItemDAOImpl implements ItemDAO {
         Set<String> sizes = new HashSet<>();
 
         try (
-
             // Connect to Database
             Connection conn = DatabaseConnection.getConnection();
             PreparedStatement pstmt = conn.prepareStatement(searchSQL);
-        
         ) {
-
             pstmt.setString(1, category.toLowerCase());
             rs = pstmt.executeQuery();
 
@@ -331,13 +286,10 @@ public class ItemDAOImpl implements ItemDAO {
         Set<String> colours = new HashSet<>();
 
         try (
-
             // Connect to Database
             Connection conn = DatabaseConnection.getConnection();
             PreparedStatement pstmt = conn.prepareStatement(searchSQL);
-        
         ) {
-
             pstmt.setString(1, category.toLowerCase());
             rs = pstmt.executeQuery();
 
@@ -352,28 +304,15 @@ public class ItemDAOImpl implements ItemDAO {
 
 
 
-
-
-
-
-
-
-
-
-    /* =========================================================================================================================== */
-
-
-
-
-
+    /* ======================================================================= CATEGORY SEARCH ======================================================================= */
 
 
 
 
     @Override
-    public List<Item> searchProducts (String gender, String category, String size, String colour) throws SQLException {
+    public List<Item> getItemByGenderCategory (String gender, String category) throws SQLException {
 
-        StringBuilder sql = new StringBuilder("SELECT * FROM products WHERE 1=1");
+        StringBuilder sql = new StringBuilder("SELECT * FROM ITEMS WHERE 1=1");
 
         List<Object> parameters = new ArrayList<>();
 
@@ -390,24 +329,11 @@ public class ItemDAOImpl implements ItemDAO {
             parameters.add(category);
         }
 
-        if (size != null && !size.isEmpty()) {
-            sql.append(" AND size = ?");
-            parameters.add(size);
-        }
-
-        if (colour != null && !colour.isEmpty()) {
-            sql.append(" AND colour = ?");
-            parameters.add(colour);
-        }
-
         try (
-
             // Connect to Database
             Connection conn = DatabaseConnection.getConnection();
             PreparedStatement pstmt = conn.prepareStatement(sql.toString());
-        
         ) {
-
             for (int i = 0; i < parameters.size(); i++) {
                 pstmt.setObject(i + 1, parameters.get(i));
             }
@@ -415,9 +341,7 @@ public class ItemDAOImpl implements ItemDAO {
             rs = pstmt.executeQuery();
             results = new ArrayList<>();
 
-
             while (rs.next()) {
-
                 results.add(new Item(
                     rs.getInt("ID"),
                     rs.getString("Name"),

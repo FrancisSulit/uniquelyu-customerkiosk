@@ -11,17 +11,14 @@ public class EmployeeLogin {
     private final Scanner scanner;
     private final EmployeeController employeeMain;
 
-
     public EmployeeLogin (Scanner scanner, EmployeeController employeeMain) {
         this.scanner = scanner;
         this.employeeMain = employeeMain;
     }
 
-
     public void displayEmployeeLoginMenu () {
 
         try {
-
             String newUsername;
             String newPassword;
             
@@ -31,7 +28,6 @@ public class EmployeeLogin {
             String storedDetails[];
             
             while (true) {
-
                 // Clear Screen before showing employee login menu
                 DisplayUtilities.clearScreen();
                 
@@ -39,8 +35,7 @@ public class EmployeeLogin {
                 
                 // This lets the user (employee) enter new login details
                 // If the login details file exists and the login contains any details
-                if (!file.exists() || file.length() == 0) {
-                    
+                if (!file.exists() || file.length() == 0) {   
                     System.out.println("No Login Details found. Please set a new Username and Password");
                     System.out.println();
                     
@@ -58,9 +53,7 @@ public class EmployeeLogin {
                     
                     break;
                 }
-
                 else {
-                    
                     System.out.println("Please enter your login details. Type 'exit' to return.");
                     System.out.println();
                     
@@ -86,7 +79,6 @@ public class EmployeeLogin {
                         employeeMain.launchEmployeeMainMenu();
                         break;
                     }
-                    
                     else {
                         System.out.print("Incorrect Username or Password. Press enter to Try again.");
                         
@@ -103,7 +95,6 @@ public class EmployeeLogin {
                 }
             }
         }
-
         catch (Exception e) {
             System.err.println("Error: " + e.getMessage());
         }
@@ -113,13 +104,10 @@ public class EmployeeLogin {
     private static void saveDetails (String username, String password) {
 
         try (BufferedWriter writer = new BufferedWriter (new FileWriter(LOGIN_FILE_NAME))) {
-
             writer.write(username);
             writer.newLine();
-
             writer.write(password);
         }
-
         catch (IOException ioe) {
             System.err.println("Failed to save login details: " + ioe.getMessage());
         }   
@@ -129,13 +117,10 @@ public class EmployeeLogin {
     private static String[] loadDetails () {
 
         try (BufferedReader reader = new BufferedReader(new FileReader(LOGIN_FILE_NAME))) {
-
             String username = reader.readLine();
             String password = reader.readLine();
-
             return new String[] {username, password};
         }
-
         catch (IOException ioe) {
             return null;
         }

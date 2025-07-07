@@ -14,7 +14,9 @@ public interface ItemService {
 
     Item getItemByID (int itemIDToGet) throws SQLException;
 
+    // ================ Search Bar ==================
 
+    List<Item> getItemByGenderCategory(String gender, String category) throws SQLException;
 
     // ================ Search Bar ==================
 
